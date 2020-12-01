@@ -4,6 +4,8 @@ import source as sgs
 import combat as combat
 import rooms as rooms
 
+#just a file for testing
+
 #testing lines
 A1=sgs.skill("Attack", 1, 0, "PHY")
 A8=sgs.skill("Decimate", 8, "Cripple", "PHY")
