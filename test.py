@@ -28,13 +28,13 @@ action=0
 
 while(action!=9):
     try:
-        action=int(input("testing(set level(1), encounter(2), loottest(3), status(4), add growths(5), exit(9)):"))
+        action=int(input("testing(add level(1), encounter(2), loottest(3), status(4), add growths(5), exit(9)):"))
         print()
     except ValueError:
         print("not valid input")
         print()
     if action == 1:
-        level = int(input("level:"))
+        level = int(input("+level:"))
         print()
         print("Gains: "+ str(p1.level_up(level)))
         p1.display_all()
@@ -73,4 +73,3 @@ while(action!=9):
         p1.add_growths(growth)
         for i in range(0,5):
             print(stats[i] + ": " + str(p1.weights[i]) + "%")
-
