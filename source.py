@@ -211,11 +211,11 @@ class skill:
             time.sleep(1)
             target.status = self.effect
             print(str(target.name) + " was inflicted with " + str(self.effect) + "!")
-        elif self.effect == "Drain": #Apply heal
+        elif self.effect == "Drain": #Apply heal equal to halp of damage dealt
             time.sleep(1)
             heal = int(damage_done/2)
             caster.heal(heal)
-        elif self.effect == "Scan":
+        elif self.effect == "Scan":#allows player to see the ability the enemy has 
             time.sleep(1)
             print("0000000000000000000000000000000")
             print("Scanned "+str(target.name)+":")
