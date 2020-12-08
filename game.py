@@ -47,7 +47,7 @@ while (gstatus==True):#keeps game running
   print()
   input("Press Enter to begin...")#require input to move on
   floor=1#set this here
-  while(True):#real game loop
+  while(gstatus==True):#real game loop
     if floor%10 == 0:#every 10 floors is a boss room
       print()
       print("Floor "+str(floor))

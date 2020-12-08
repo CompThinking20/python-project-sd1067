@@ -59,18 +59,21 @@ def generate_skill(level):#generates a random skill
   #scaling damage base on level
   if level < 10:
     damage=random.choice(["Miniscule ","Small ","Medium "])
-  elif level < 30:
+  elif level < 20:
     damage=random.choice(["Miniscule ","Small ","Medium ","Huge ","Immense "])
-  elif level >= 30:
+  elif level >= 20:
     damage = random.choice(["Medium ","Huge ","Immense ","Collossal "]) 
   #adds tags the higher level it is
   if level < 10 and damage != "Medium ":
     stag1=random.choice(["Vampiric ","Libra","Maiming ","Exposing ","Pressure ","Crushing "])
-  elif level < 30 and damage != "Immense ":
+  elif level < 20 and damage != "Immense ":
     stag1=random.choice(["Vampiric ","Libra","Maiming ","Exposing ","Pressure ","Crushing "])
+  elif level < 30:
+    stag1=random.choice(["Vampiric ","Libra","Maiming ","Exposing ","Pressure ","Crushing "])
+    stag2=random.choice(["Cursed ", "Enhanced "])
   elif level >= 30:
     stag1=random.choice(["Vampiric ","Libra","Maiming ","Exposing ","Pressure ","Crushing "])
-    stag2=random.choice(["God-Blessed ", "Cursed ", "Enhanced "])
+    stag2=random.choice(["God-Blessed ","Cursed ", "Enhanced "])
   #setting a name
   if stag1 == 0 and stag2 == 0:
     name=damage+sbase
@@ -94,16 +97,16 @@ def generate_enemy(level):
   tag2=random.choice(["Giant ","Enraged ","Shining ","Enchanted ","Berserk ","Extreme ","Agile ","Protected "])
   #tags are only added if the level meets the requirement
   if level < 10:
-    e = sgs.character(base,2,2,2,2,2)
+    e = sgs.character(base,3,3,3,3,3)
     e.add_growths(tags.enemy_classes[base])
-  elif level < 40:
+  elif level < 20:
     name=tag2+base
-    e = sgs.character(name,2,2,2,2,2)
+    e = sgs.character(name,5,5,5,5,5)
     e.add_growths(tags.enemy_classes[base])
     e.add_growths(tags.enemy_tags[tag2])
-  elif level >= 40:
+  elif level >= 20:
     name=tag1+tag2+base
-    e = sgs.character(name,2,2,2,2,2)
+    e = sgs.character(name,5,5,5,5,5)
     e.add_growths(tags.enemy_classes[base])
     e.add_growths(tags.enemy_tags[tag2])
     e.add_growths(tags.enemy_names[tag1])
