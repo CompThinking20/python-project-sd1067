@@ -48,7 +48,7 @@ while (gstatus==True):#keeps game running
   input("Press Enter to begin...")#require input to move on
   floor=1#set this here
   while(True):#real game loop
-    if floor%10 == 0:
+    if floor%10 == 0:#every 10 floors is a boss room
       print()
       print("Floor "+str(floor))
       print()
@@ -61,16 +61,16 @@ while (gstatus==True):#keeps game running
       print()
       print("Floor "+str(floor))
       print()
-      room1=rooms.room("c",floor)
+      room1=rooms.room("c",floor)#always will be a combat choice
       r2choice=random.choice(room_c)
-      room2=rooms.room(r2choice,floor)
-      print("Choose a door:")
+      room2=rooms.room(r2choice,floor)#other room will be random
+      print("Choose a door:")#player choice
       print("(0)")
       room1.display()
       print("(1)")
       room2.display()
       print()
-      while True:
+      while True:#try-catch block for inputs again
         try: 
           choice=int(input("Choice:"))
           if (0 <= choice <= 1)==False:
@@ -84,11 +84,11 @@ while (gstatus==True):#keeps game running
           print()
       if choice==0:
           input("Press enter to begin the encounter...")
-          gstatus=room1.enter(player)
+          gstatus=room1.enter(player)#enter room
       elif choice==1:
           input("Press enter to begin the encounter...")
-          gstatus=room2.enter(player)
-    floor=floor+1
+          gstatus=room2.enter(player)#enter room
+    floor=floor+1#floor rises at end
 
 
 
