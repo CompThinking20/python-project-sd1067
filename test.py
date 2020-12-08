@@ -7,6 +7,7 @@ import rooms as rooms
 #just a file for testing
 
 #testing lines
+#placeholder skills
 A1=sgs.skill("Attack", 1, 0, "PHY")
 A8=sgs.skill("Decimate", 8, "Cripple", "PHY")
 M1=sgs.skill("Cast", 1, "Drain" , "MAG")
@@ -14,6 +15,7 @@ M5=sgs.skill("Burst", 5, "Broken", "MAG")
 S1=sgs.skill("Analyze A", 0, "Scan" , "MAG")
 S3=sgs.skill("Analyze B", 1.5, "Scan" , "MAG")
 
+#default character
 p1 = sgs.character("PLAYER",10,3,3,3,3)
 p1.add_skill(A1,"n")
 p1.add_skill(A8,"n")
@@ -22,13 +24,16 @@ p1.add_skill(S3,"n")
 p1.add_skill(M1,"n")
 p1.add_skill(M5,"n")
 
+#default enemy
 e1 = sgs.character("ENEMY",10,3,4,2,3)
 
 action=0
 
+print("!!! only intended for testing purposes, does not sanitize all inputs")
+
 while(action!=9):
     try:
-        action=int(input("testing(add level(1), encounter(2), loottest(3), status(4), add growths(5), exit(9)):"))
+        action=int(input("testing(add level(1), encounter(2), loottest(3), status(4), add growths(5), encounter room(6), exit(9)):"))
         print()
     except ValueError:
         print("not valid input")
@@ -73,3 +78,7 @@ while(action!=9):
         p1.add_growths(growth)
         for i in range(0,5):
             print(stats[i] + ": " + str(p1.weights[i]) + "%")
+    elif action == 6:
+      r1=rooms.room("c",p1.level)
+      r1.display()
+      r1.enter(p1) 

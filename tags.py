@@ -4,6 +4,8 @@ import math
 import source as sgs
 import combat as combat
 
+#a pool of choices to pull from
+
 #Player choice
 classes={
 "Fighter":[10,5,4,3,5],
@@ -13,10 +15,10 @@ classes={
 }
 
 class_growths={
-"Fighter":[120,60,60,20,40],
-"Mage":[80,20,60,90,50],
-"Assassin":[70,70,60,20,80],
-"Arcanist":[110,20,50,70,50]
+"Fighter":[220,160,160,120,140],
+"Mage":[180,120,160,190,150],
+"Assassin":[170,170,160,120,180],
+"Arcanist":[210,120,150,170,150]
 }
 
 #enemy Generation
@@ -62,20 +64,21 @@ skill_secondary={
 "Maiming ":"Crippled",
 "Exposing ":"Opened",
 "Pressure ":"Weakened",
-"Crushing ":"Broken"
+"Crushing ":"Broken",
+0:0,
 }
 
 skill_damage={
 "Miniscule ":.5,
 "Small ":1,
-"Medium ":2,
-"Huge ":3,
-"Immense ":4,
-"Collossal ":5
+"Medium ":1.5,
+"Huge ":2,
+"Immense ":2.5,
+"Collossal ":3
 }
 
 skill_tag={
-"God-Blessed ":1.5,
-"Cursed ":-1,
-"Enhanced ":1,
+"God-Blessed ":1,
+"Cursed ":-.5,
+"Enhanced ":.5,
 }

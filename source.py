@@ -22,15 +22,15 @@ class character:
         self.skills=[] #list of skills to be accessed later
         self.status="Normal"
         #chance in % to gain respective stat upon leveling
-        self.weights=[100,50,50,50,50]
+        self.weights=[10,10,10,10,10]
         self.drops=[]
     #for display purposes
-    def display_title(self):
+    def display_title(self):#displays name and level
         print(str(self.name) + " Lv " + str(self.level))
-    def display_status(self):
+    def display_status(self):#displays name, level, status, and stats
         print(str(self.name) + " Lv " + str(self.level) +"  "+ str(self.hp) + "/" + str(self.mhp) +  " HP | " + str(self.status))
         print("Atk:" + str(self.get_atk()) + " / Def:" + str(self.get_df()) + " / Mag:" + str(self.get_mag()) + " / Agl:" + str(self.get_agl()))
-    def display_actions(self):
+    def display_actions(self):#displays all actions this character can take
         print("[]-----------------------------------------------[]")
         print("Skills:")
         count=0
@@ -40,7 +40,7 @@ class character:
             x.display()
             count=count+1
         print("[]-----------------------------------------------[]")
-    def display_loot(self):
+    def display_loot(self):#displays what this character will drop
         print("[]-----------------------------------------------[]")
         print("Loot:")
         for x in range(len(self.drops)):
@@ -112,7 +112,7 @@ class character:
         self.drops.append(drop)
         if len(self.drops) > 4:
             self.drops.remove(self.drops[1])
-    def drop_loot(self, victor):
+    def drop_loot(self, victor):#drops loot
         stat=["MHP","ATK","DF","MAG","AGL"]
         for x in range(int(len(self.drops))):
             if x == 0:
@@ -180,7 +180,7 @@ class character:
         else:
             return self.agl
 
-class skill:
+class skill:#skills for use 
     def __init__(self, name, damage, effect, dtype):
         self.name=name
         self.damage=damage

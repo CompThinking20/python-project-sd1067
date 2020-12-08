@@ -45,21 +45,15 @@ def encounter( player , enemy ): #combat function
                     print()
                     paction = int(input("Enter Action:"))
                     if paction != int(paction):
-                        raise NaNError
+                        raise ValueError
                     if paction < 0 or paction >= len(player.skills):
-                        raise NoSkillError
+                        raise ValueError
                     break
                 except TypeError:
                     print("Not a skill number. Please try again.")
                     print()
                 except ValueError:
                     print("Not a skill number. Please try again.")
-                    print()
-                except NoSkillError:
-                    print("Not a skill number. Please try again.")
-                    print()
-                except NaNError:
-                    print("Not a number. Please try again.")
                     print()
             player.b_action(paction, enemy) #execute action
             ptimer = 1000 #resetting the timer
